@@ -3,6 +3,14 @@ import Link from "next/link";
 // import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+// import { CgProfile } from "react-icons/fa";
+import {
+  FaUser,
+  FaSignOutAlt,
+  FaList,
+  FaSignInAlt,
+  FaUpload,
+} from "react-icons/fa";
 
 const Navbar = () => {
   // const { data: session, status } = useSession();
@@ -19,24 +27,17 @@ const Navbar = () => {
       <div>
         {user ? (
           <>
+            <Link href="/upload">
+              <button className="btn btn-secondary gap-2 ml-2 capitalize">
+                <FaUpload />
+                Upload
+              </button>
+            </Link>
             {/* {console.log(user)} */}
             {/* <p>Signed in as {user.user_metadata.username}!</p> */}
             <Link href="/profile" className="underline cursor-pointer">
               <button className="btn btn-primary gap-2 ml-2 capitalize">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
+                <FaUser />
                 Profile
               </button>
             </Link>
@@ -48,20 +49,7 @@ const Navbar = () => {
                 router.push("/");
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
+              <FaSignOutAlt />
               Sign Out
             </button>
           </>
@@ -69,39 +57,13 @@ const Navbar = () => {
           <>
             <Link href="/register" className="ml-2 underline cursor-pointer">
               <button className="btn btn-secondary gap-2 capitalize">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
+                <FaList />
                 Register
               </button>
             </Link>
             <Link href="/signin" className="ml-2 underline cursor-pointer">
               <button className="btn btn-primary gap-2 ml-2 capitalize">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
+                <FaSignInAlt />
                 Sign In
               </button>
             </Link>
